@@ -1,0 +1,163 @@
+<%-include('partials/header', {DocumentTitle:'Sergei Bubnov | CV'})%>
+
+
+
+  <section class="home" id="home">
+      <div class="container-lg mt-5">
+          <div class="row min-vh-95 align-items-center">
+              <div class="col-md-6">
+                <div class="home-img text-center">
+                    <img class="rounded-circle" src="../img/<%=personalInfo[0].profilepic%>" width="300" height="300" alt="">
+                </div>
+              </div>
+              <div class="col-md-6">
+                  <div class="home-text">
+                      <p class="fs-4">
+                        Hello, my name is
+                      </p>
+                      <h1 class="fs-4">
+                        <%= personalInfo[0].firstName +" "+ personalInfo[0].lastName %>
+                      </h1>
+                      <h1 class="text-success fs-1 text-uppercase">
+                        <%= personalInfo[0].description%>
+                      </h1>
+                      <h1 class="fs-4">
+                        It's <span class="fs-4" id="current"></span> and I hope you're having good time
+                      </h1>
+                      <h1 class="fs-5">
+                        I am from <%= personalInfo[0].city %>, <%= personalInfo[0].country %>
+                      </h1>
+                      <a href="#contact" class="btn btn-success text-uppercase px-3">Want to have touch with me?</a>
+                  </div>
+            </div>
+          </div>
+      </div>
+  </section>
+
+  <hr>
+
+  <section class="about" id="about">
+    <div class="container-lg py-5 text-center">
+      <div class="row">
+        <div class="section-heading text-center">
+          <h2 class="fw-bold mb-2">About me</h2>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div >
+          <div class="about-text">
+            <h3 class="fs-4 mb-3">As mentioned earlier, <%=personalInfo[0].description %></h3>
+            <h3>More info right below!</h1>
+          </div>
+
+        </div>
+
+        </div>
+
+    </div>
+  
+    <div class="education" id="education">
+      <h1>My educational path</h1>
+
+
+      <%for(let i = 0; i<education.length; i++) {%>
+
+          <h3><%=education[i].schoolName%></h2>
+          <h5>Education type: <%=education[i].educationType%></h5>
+          <h5>Graduated at <%=education[i].graduated.toISOString().substring(0, 10)%></h5>
+
+      <%}%>
+    </div>
+
+    <div class="skills" id="skills">
+      <h1 id="softskills"> My Soft skills include</h2>
+
+      <%for(let i = 0; i<softSkills.length; i++) {%>
+
+              <h4><%=softSkills[i].title%></h4>
+
+      <%}%>
+
+      <h1 id="technicalskills"> My Technical skills include</h2>
+
+      <%for(let i = 0; i<technicalSkills.length; i++) {%>
+
+          <h4><%=technicalSkills[i].title%></h4>
+
+      <%}%>
+      <img src="/img/shaman.jpg" class="skillsImg">
+      <img src="/img/shaman-2.jpg" class="skillsImg">
+    </div>
+  </section> 
+  <hr>
+  <div class="contact">
+    <div class="row"><!--contact area-->
+      <div class="col-lg-5"> <!--contact details-->
+          <div class="contact-details mb-3 d-flex"> <!--envelope-->
+              <div class="icon fs-4 text-success">
+                  <i class="fas fa-envelope"></i>
+              </div>
+              <div class="text ms-3">
+                  <h3 class="fs-5">Email</h3>
+                  <p class="text-muted"><%contact[0].email%></p>
+              </div>
+          </div>
+
+          <div class="contact-details mb-3 d-flex"> <!--phone-->
+              <div class="icon fs-4 text-success">
+                  <i class="fas fa-phone"></i>
+              </div>
+              <div class="text ms-3">
+                  <h3 class="fs-5">Phone</h3>
+                  <p class="text-muted"><%contact[0].phone%></p>
+              </div>
+          </div>
+
+          <div class="contact-details mb-3 d-flex"> <!--location-->
+              <div class="icon fs-4 text-success">
+                  <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="text ms-3">
+                  <h3 class="fs-5">Location</h3>
+                  <p class="text-muted"><%contact[0].address%></p>
+              </div>
+          </div>
+      </div>
+      <div class="col-lg-7"><!--contact form-->
+          <div class="contact-form">
+              <form>
+                  <div class="row">
+                      <div class="col-lg-6 mb-4">
+                          <input class="form-control form-control-lg fs-6" type="text" placeholder="Your Name">
+                      </div>
+                      <div class="col-lg-6 mb-4">
+                          <input class="form-control form-control-lg fs-6" type="email" placeholder="Your Email">
+                      </div>
+                  </div>
+
+                  <div class="row">
+                      <div class="col-lg-12">
+                          <textarea rows="5" class="form-control form-control-lg fs-6" placeholder="Enter your message"></textarea>
+                      </div>
+                  </div>
+
+                  <div class="row">
+                      <div class="col-lg-12">
+                          <button class="btn btn-success mt-3">
+                              Submit
+                          </button>
+                      </div>
+                  </div>
+              </form>
+          </div>
+
+      </div>
+  </div>
+
+</div>
+</section>
+<!--contact end-->
+  </div>
+ <%-include('partials/footer')%>
